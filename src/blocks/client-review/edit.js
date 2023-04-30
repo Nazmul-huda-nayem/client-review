@@ -3,46 +3,32 @@ import {
 	useBlockProps,
 	InspectorControls,
 	RichText,
+	InnerBlocks
 } from '@wordpress/block-editor';
-import { PanelBody, ColorPalette } from '@wordpress/components';
+import { PanelBody } from '@wordpress/components';
 const { Fragment } = wp.element;
-
+// import child block
+import './child.js';
 // editor style
 import './editor.scss';
 
-// colors
-import colors from '../../utilities/colors-palette';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { content, color } = attributes;
+	const {  } = attributes;
 	return (
 		<Fragment>
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'boilerplate')}
 					initialOpen={true}
-				>
-					<p className="custom__editor__label">
-						{__('Text Color', 'boilerplate')}
-					</p>
-					<ColorPalette
-						colors={colors}
-						value={color}
-						onChange={(newColor) =>
-							setAttributes({ color: newColor })
-						}
-					/>
-				</PanelBody>
+				></PanelBody>
 			</InspectorControls>
 
 			<div {...useBlockProps()}>
-				<RichText
-					tagName="h4"
-					value={content}
-					onChange={(newContent) =>
-						setAttributes({ content: newContent })
-					}
-					style={{ color }}
+				<InnerBlocks
+					allowedBlocks={['clr/child']}
+					template={[['clr/child'], ['clr/child'], ['clr/child']]}
+					renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
 				/>
 			</div>
 		</Fragment>
