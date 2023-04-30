@@ -3,5 +3,5 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
 	const { content, color } = attributes;
-	return <div {...useBlockProps.save()}></div>;
+	return <div {...useBlockProps.save()}>child</div>;
 }

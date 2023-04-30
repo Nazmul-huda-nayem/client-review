@@ -8,7 +8,6 @@ import {
 import { PanelBody } from '@wordpress/components';
 const { Fragment } = wp.element;
 // import child block
-import './child.js';
 // editor style
 import './editor.scss';
 
@@ -25,11 +24,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<div {...useBlockProps()}>
-				<InnerBlocks
-					allowedBlocks={['clr/child']}
-					template={[['clr/child'], ['clr/child'], ['clr/child']]}
-					renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
-				/>
+				
 			</div>
 		</Fragment>
 	);

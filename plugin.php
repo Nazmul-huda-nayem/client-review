@@ -81,10 +81,41 @@ final class CLR_BLOCKS_CLASS {
 	 * Blocks Initialization
 	*/
 	public function clr_blocks_init() {
-		// register single block
-		$this->clr_register_block( 'client-review' );
+		// client review block
+		$this->clr_register_block( 'client-review', [
+			'render_callback' => [$this, 'clr_client_review'],
+		] );
+
+		// review item block
+		$this->clr_register_block( 'review-item', [
+			'render_callback' => [$this, 'clr_review_item'],
+		] );
 	}
 
+	// client review callback
+	public function clr_client_review($attributes, $content) {
+		// require client review template
+		
+		// register inline style
+		// $this->clr_register_inline_style(
+		// 	'clr-review',
+		// 	clr_cl
+		// )
+
+		return $content;
+	}
+	// client review item callback
+	public function clr_review_item($attributes, $content) {
+		// require client review template
+		
+		// register inline style
+		// $this->clr_register_inline_style(
+		// 	'clr-review',
+		// 	clr_cl
+		// )
+
+		return $content;
+	}
 	/**
 	 * Register Block Category
 	 */
