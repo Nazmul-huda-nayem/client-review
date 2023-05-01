@@ -39,9 +39,5 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-review-icon .react-rater-star.is-active {
-  font-size: 14px;
-  color: #ff9a00;
-}
 
 /*# sourceMappingURL=index.css.map*/

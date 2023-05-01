@@ -790,8 +790,7 @@ function Edit(_ref) {
     textColor,
     textSizes,
     id
-  } = attributes;
-  console.log(id); //set unique id
+  } = attributes; //set unique id
 
   setAttributes({
     id: 'bdt-client-review-' + clientId.slice(0, 8)

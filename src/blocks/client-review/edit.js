@@ -20,7 +20,6 @@ import BdtContainer from './editor-styled';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const { textColor, textSizes, id } = attributes;
-	console.log(id);
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
