@@ -5,7 +5,7 @@ import {
 	RichText,
 	InnerBlocks
 } from '@wordpress/block-editor';
-import { PanelBody, TabPanel } from '@wordpress/components';
+import { CardDivider, PanelBody, TabPanel } from '@wordpress/components';
 const { Fragment } = wp.element;
 
 // import color control
@@ -54,17 +54,18 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							return (
 								<Fragment>
 									<PanelBody initialOpen={true}>
-										{/* <ColorControl
+										<ColorControl
 											label={__(
 												'Text Color',
 												'text-domain'
 											)}
-											colorValue={color}
-											colorName="color"
+											colorValue={textColor}
+											colorName="textColor"
 											setAttributes={setAttributes}
 											enableAlpha={true}
-										/> */}
-										<ResponsiveSize 
+										/>
+										<CardDivider />
+										<ResponsiveSize
 											label={__('Text Size', 'clr')}
 											attribute={textSizes}
 											attributeName="textSizes"
@@ -89,7 +90,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 
 			<BdtContainer {...useBlockProps()}
-				textSizes={ textSizes }
+				textSizes= { textSizes }
+				textColor= { textColor }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">
