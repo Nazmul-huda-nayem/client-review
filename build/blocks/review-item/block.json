@@ -23,7 +23,8 @@
       "type": "object"
     },
     "rating": {
-      "type": "number"
+      "type": "number",
+      "default": 4.5
     }
   },
   "textdomain": "clr",
