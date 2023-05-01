@@ -1,0 +1,14 @@
+.bdt-color-picker {
+    .color-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .color-indicator {
+            line-height: 1;
+            border: navajowhite;
+            background: #0000;
+            cursor: pointer;
+        }
+    }
+
+}

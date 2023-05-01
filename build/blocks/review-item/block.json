@@ -22,6 +22,10 @@
     "photo": {
       "type": "object"
     },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
     "rating": {
       "type": "number",
       "default": 4.5

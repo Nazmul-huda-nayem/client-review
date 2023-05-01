@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { clientName, clientDesg, clientComment, rating, photo } = attributes;
+	const { clientName, clientDesg, clientComment, rating, photo, showRating } = attributes;
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="bdt-image-wrap">
@@ -35,7 +35,13 @@ export default function save({ attributes }) {
 					/>
 				)}
 			</div>
-			<div className="bdt-review-icon">rating</div>
+			{
+				showRating && (
+					<div className="bdt-review-icon">
+						<div className="bdt-rating" data-rate-value={rating}></div>
+					</div>
+				)
+			}
 		</div>
 	);
 }

@@ -77,6 +77,15 @@ final class CLR_BLOCKS_CLASS {
 		register_block_type( __DIR__ . '/build/blocks/' . $name, $options );
 	 }
 
+	 /**
+	  * register inline style
+	  */
+
+	  public function clr_register_inline_style($handle, $css) {
+		wp_register_style( $handle, false );
+		wp_enqueue_style( $handle );
+		wp_add_inline_style( $handle, $css );
+	  }
 	/**
 	 * Blocks Initialization
 	*/
@@ -87,35 +96,24 @@ final class CLR_BLOCKS_CLASS {
 		] );
 
 		// review item block
-		$this->clr_register_block( 'review-item', [
-			'render_callback' => [$this, 'clr_review_item'],
-		] );
+		$this->clr_register_block( 'review-item' );
 	}
 
 	// client review callback
 	public function clr_client_review($attributes, $content) {
-		// require client review template
+		//client review template
+		// require_once __DIR__ . '/templates/grid/grid.php'
+		// $id = $attributes['id'];
 		
-		// register inline style
+		//register inline style
 		// $this->clr_register_inline_style(
-		// 	'clr-review',
-		// 	clr_cl
-		// )
+		// 	'clr_client',
+		// 	clr_client_review_style( $attributes )
+		// );
 
 		return $content;
 	}
-	// client review item callback
-	public function clr_review_item($attributes, $content) {
-		// require client review template
-		
-		// register inline style
-		// $this->clr_register_inline_style(
-		// 	'clr-review',
-		// 	clr_cl
-		// )
-
-		return $content;
-	}
+	
 	/**
 	 * Register Block Category
 	 */
@@ -137,7 +135,11 @@ final class CLR_BLOCKS_CLASS {
 	 */
 	public function clr_external_libraries() {
 		// enqueue JS
-		wp_enqueue_script( 'clr-lib', CLR_INC_URL . 'js/plugin.js', array(), CLR_VERSION, true );
+		
+		if( !is_admin() && has_block( 'clr/review-item' )) {
+			wp_enqueue_script( 'clr-rater', CLR_INC_URL . 'js/rater.min.js', array('jquery'), CLR_VERSION, true );
+			wp_enqueue_script( 'clr-plugin', CLR_INC_URL . 'js/plugin.js', array('jquery', 'clr-rater'), CLR_VERSION, true );
+		}
 	}
 
 }

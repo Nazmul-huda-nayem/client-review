@@ -39,6 +39,7 @@
 		"eslint-config-prettier": "^8.3.0"
 	},
 	"dependencies": {
-		"react-rater": "^6.0.5"
+		"react-rater": "^6.0.5",
+		"styled-components": "^5.3.10"
 	}
 }

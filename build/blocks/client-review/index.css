@@ -1,3 +1,48 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/utilities/components/colorcontrol/colorcontrol.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+.bdt-color-picker .color-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bdt-color-picker .color-header .color-indicator {
+  line-height: 1;
+  border: navajowhite;
+  background: #0000;
+  cursor: pointer;
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/utilities/components/responsivesize/responsivesize.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.bdt-responsive-size {
+  margin-top: 15px;
+}
+.bdt-responsive-size .bdt-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bdt-responsive-size .bdt-flex .bdt-device-icon-wrapper {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.bdt-responsive-size .bdt-flex .bdt-device-icon-wrapper .bdt-device {
+  background: #0000;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+.bdt-responsive-size .bdt-flex .bdt-device-icon-wrapper .bdt-device.active-device svg {
+  fill: #201f1f;
+}
+.bdt-responsive-size .bdt-flex .bdt-device-icon-wrapper .bdt-device svg {
+  width: 14px;
+  height: 10px;
+  fill: #aca9a9;
+}
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/blocks/client-review/editor.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
@@ -6,6 +51,23 @@
 */
 .wp-block-create-block-boilerplate {
   border: 1px dotted #010101;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/utilities/admin/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.bdt-tab-panel .bdt-tab {
+  width: 100%;
+  background: #dbe8e8;
+  justify-content: center;
+  border-right: 2px solid #cfc2c2;
+  border-top: 2px solid #0000;
+}
+.bdt-tab-panel .bdt-tab:hover {
+  color: unset;
+}
+.bdt-tab-panel .bdt-tab.active-tab {
+  border-top: 2px solid #9e6e01;
+  background: #d4cece;
 }
 
 /*# sourceMappingURL=index.css.map*/

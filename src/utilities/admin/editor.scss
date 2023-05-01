@@ -1,0 +1,16 @@
+.bdt-tab-panel {
+    .bdt-tab {
+        width: 100%;
+        background: #dbe8e8;
+        justify-content: center;
+        border-right: 2px solid #cfc2c2;
+        border-top: 2px solid #0000;
+        &:hover {
+            color: unset;
+        }
+        &.active-tab {
+            border-top: 2px solid #9e6e01;
+            background: #d4cece; 
+        }
+    }
+}

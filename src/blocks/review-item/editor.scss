@@ -2,6 +2,16 @@
 * Style Works for Editor Only
 */
 
-.wp-block-create-block-boilerplate {
-	border: 1px dotted rgb(1, 1, 1);
+.wp-block-clr-client-review .bdt-review-grid-wrap {
+    display: block;
+    .block-editor-block-list__layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .bdt-review-icon .react-rater-star.is-active{
+        font-size: 14px;
+        color: #ff9a00;
+    }
 }
+    

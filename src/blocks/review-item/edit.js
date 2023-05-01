@@ -16,6 +16,7 @@ import {
 	CardHeader,
 	CardBody,
 	RangeControl,
+	ToggleControl
 } from '@wordpress/components';
 const { Fragment } = wp.element;
 // import rater
@@ -25,7 +26,7 @@ import 'react-rater/lib/react-rater.css';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { clientName, clientDesg, clientComment, rating, photo } = attributes;
+	const { clientName, clientDesg, clientComment, rating, photo, showRating } = attributes;
 	return (
 		<Fragment>
 			<InspectorControls>
@@ -34,16 +35,27 @@ export default function Edit({ attributes, setAttributes }) {
 						<strong>{__('Client Rating', 'clr')}</strong>
 					</CardHeader>
 					<CardBody>
-						<RangeControl
-							label={__('Rating', 'clr')}
-							value={rating}
-							onChange={(value) =>
-								setAttributes({ rating: value })
+						<ToggleControl
+							label={__('Show Rating', 'clr')}
+							checked={showRating}
+							onChange={() =>
+								setAttributes({
+									showRating: !showRating,
+								})
 							}
-							min={1}
-							max={5}
-							step={0.1}
 						/>
+						{showRating && (
+							<RangeControl
+								label={__('Rating', 'clr')}
+								value={rating}
+								onChange={(value) =>
+									setAttributes({ rating: value })
+								}
+								min={1}
+								max={5}
+								step={0.1}
+							/>
+						)}
 					</CardBody>
 				</Card>
 			</InspectorControls>
@@ -70,33 +82,34 @@ export default function Edit({ attributes, setAttributes }) {
 				</BlockControls>
 			)}
 			<div {...useBlockProps()}>
-				<div className="bdt-image-wrap">
-					{photo ? (
+				{photo ? (
+					<div className="bdt-image-wrap">
 						<img
 							src={photo.url}
 							alt={photo.alt ? photo.alt : clientName}
 						/>
-					) : (
-						<MediaUpload
-							onSelect={(media) =>
-								setAttributes({
-									photo: media,
-								})
-							}
-							allowedTypes={['image']}
-							value={photo && photo.id}
-							render={({ open }) => (
-								<Button
-									onClick={open}
-									variant="secondary"
-									icon={'cloud-upload'}
-								>
-									Upload Client Image
-								</Button>
-							)}
-						/>
-					)}
-				</div>
+					</div>
+				) : (
+					<MediaUpload
+						onSelect={(media) =>
+							setAttributes({
+								photo: media,
+							})
+						}
+						allowedTypes={['image']}
+						value={photo && photo.id}
+						render={({ open }) => (
+							<Button
+								onClick={open}
+								variant="secondary"
+								icon={'cloud-upload'}
+							>
+								Upload Client Image
+							</Button>
+						)}
+					/>
+				)}
+
 				<div className="bdt-content">
 					<RichText
 						tagName="h4"
@@ -126,9 +139,11 @@ export default function Edit({ attributes, setAttributes }) {
 						placeholder={__('Write client comment', 'clr')}
 					/>
 				</div>
-				<div className="bdt-review-icon">
-					<Rater total={5} rating={rating} interactive={false} />
-				</div>
+				{showRating && (
+					<div className="bdt-review-icon">
+						<Rater total={5} rating={rating} interactive={false} />
+					</div>
+				)}
 			</div>
 		</Fragment>
 	);

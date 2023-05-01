@@ -10,13 +10,24 @@
     "anchor": true
   },
   "attributes": {
+    "id": {
+      "type": "string"
+    },
     "content": {
       "type": "string",
       "default": "Hello World!"
     },
-    "color": {
+    "textColor": {
       "type": "string",
       "default": "#00ff00"
+    },
+    "textSizes": {
+      "type": "object",
+      "default": {
+        "desktop": 20,
+        "tablet": 18,
+        "mobile": 16
+      }
     }
   },
   "textdomain": "clr",

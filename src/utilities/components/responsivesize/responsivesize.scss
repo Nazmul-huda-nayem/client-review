@@ -1,0 +1,28 @@
+.bdt-responsive-size {
+    margin-top: 15px;
+    .bdt-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .bdt-device-icon-wrapper {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            .bdt-device {
+                background: #0000;
+                border: none;
+                padding: 0;
+                line-height: 1;
+                cursor: pointer;
+                &.active-device svg {
+                    fill: #201f1f;
+                }
+                svg {
+                    width: 14px;
+                    height: 10px;
+                    fill: #aca9a9; 
+                }
+            }
+        }
+    }
+}

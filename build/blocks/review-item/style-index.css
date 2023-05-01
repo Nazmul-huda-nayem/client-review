@@ -4,10 +4,56 @@
 /*
 * Style Works for both Editor and Frontend
 */
-.wp-block-create-block-boilerplate {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+.wp-block-clr-client-review {
+  max-width: 1200px !important;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .wp-block-clr-review-item {
+  padding: 40px 30px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-image-wrap {
+  margin-top: -70px;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-image-wrap img {
+  height: 65px;
+  width: 65px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-content {
+  margin-top: 30px;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-content .bdt-name {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 3px;
+  font-weight: 700;
+  color: #2b2c34;
+  text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-content .bdt-designation {
+  font-size: 13px;
+  text-transform: capitalize;
+  color: #5f606f;
+  margin: 0 0 20px;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-content .bdt-desc {
+  font-size: 15px;
+  color: #6b7285;
+  margin-bottom: 50px;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .bdt-review-icon span {
+  font-size: 14px;
+  color: #ff9a00;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
