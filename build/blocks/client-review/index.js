@@ -789,6 +789,8 @@ function Edit(_ref) {
   const {
     textColor,
     textSizes,
+    desgColor,
+    desgTextSizes,
     id
   } = attributes; //set unique id
 
@@ -817,7 +819,7 @@ function Edit(_ref) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         initialOpen: true
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text Color', 'text-domain'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Name Color', 'clr'),
         colorValue: textColor,
         colorName: "textColor",
         setAttributes: setAttributes,
@@ -833,6 +835,26 @@ function Edit(_ref) {
         min: 1,
         max: 100,
         unit: "px"
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Designation', 'clr'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Color', 'clr'),
+        colorValue: desgColor,
+        colorName: "desgColor",
+        setAttributes: setAttributes,
+        enableAlpha: true
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_responsivesize_responsivesize__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text Size', 'clr'),
+        attribute: desgTextSizes,
+        attributeName: "desgTextSizes",
+        setAttributes: setAttributes,
+        deskResetValue: 20,
+        tabResetValue: 18,
+        mobResetValue: 16,
+        min: 1,
+        max: 100,
+        unit: "px"
       })));
     } else if (tab.name === 'bdt_style') {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, "Style");
@@ -841,7 +863,9 @@ function Edit(_ref) {
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_editor_styled__WEBPACK_IMPORTED_MODULE_9__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
     textSizes: textSizes,
-    textColor: textColor
+    textColor: textColor,
+    desgTextSizes: desgTextSizes,
+    desgColor: desgColor
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "bdt-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -869,10 +893,16 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 	.bdt-content .bdt-name {
 		color: ${props => props.textColor} !important;
 	}
+	.bdt-content .bdt-designation {
+		color: ${props => props.desgColor} !important;
+	}
 	// Desktop View
 	@media (min-width: 1025px) {
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.desktop}px !important;
+		}
+		.bdt-content .bdt-designation {
+			font-size: ${props => props.desgTextSizes.desktop}px !important;
 		}
 	}
 
@@ -881,12 +911,18 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.tablet}px !important;
 		}
+		.bdt-content .bdt-designation {
+			font-size: ${props => props.desgTextSizes.tablet}px !important;
+		}
 	}
 
 	// Mobile View
 	@media (max-width: 767px) {
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.mobile}px !important;
+		}
+		.bdt-content .bdt-designation {
+			font-size: ${props => props.desgTextSizes.mobile}px !important;
 		}
 	}
 `;
@@ -1991,7 +2027,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

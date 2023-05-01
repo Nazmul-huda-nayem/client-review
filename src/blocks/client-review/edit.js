@@ -19,7 +19,7 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, id } = attributes;
+	const { textColor, textSizes, desgColor, desgTextSizes, id } = attributes;
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -56,8 +56,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									<PanelBody initialOpen={true}>
 										<ColorControl
 											label={__(
-												'Text Color',
-												'text-domain'
+												'Name Color',
+												'clr'
 											)}
 											colorValue={textColor}
 											colorName="textColor"
@@ -69,6 +69,34 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											label={__('Text Size', 'clr')}
 											attribute={textSizes}
 											attributeName="textSizes"
+											setAttributes={setAttributes}
+											deskResetValue={20}
+											tabResetValue={18}
+											mobResetValue={16}
+											min={1}
+											max={100}
+											unit="px"
+										/>
+									</PanelBody>
+									<PanelBody 
+										title={__('Designation', 'clr')}
+										initialOpen={false}
+									>
+										<ColorControl
+											label={__(
+												'Color',
+												'clr'
+											)}
+											colorValue={desgColor}
+											colorName="desgColor"
+											setAttributes={setAttributes}
+											enableAlpha={true}
+										/>
+										<CardDivider />
+										<ResponsiveSize
+											label={__('Text Size', 'clr')}
+											attribute={desgTextSizes}
+											attributeName="desgTextSizes"
 											setAttributes={setAttributes}
 											deskResetValue={20}
 											tabResetValue={18}
@@ -92,6 +120,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			<BdtContainer {...useBlockProps()}
 				textSizes= { textSizes }
 				textColor= { textColor }
+				desgTextSizes= { desgTextSizes }
+				desgColor= { desgColor }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">

@@ -28,6 +28,18 @@
 				"tablet": 18,
 				"mobile": 16
 			}
+		},
+		"desgColor": {
+			"type": "string",
+			"default": "#000"
+		},
+		"desgTextSizes": {
+			"type": "object",
+			"default": {
+				"desktop": 20,
+				"tablet": 18,
+				"mobile": 16
+			}
 		}
 	},
 	"textdomain": "clr",
