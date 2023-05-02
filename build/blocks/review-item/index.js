@@ -1737,7 +1737,7 @@ module.exports = window["wp"]["i18n"];
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/review-item","version":"0.1.0","title":"Review Item","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"clientName":{"type":"string"},"clientDesg":{"type":"string"},"clientComment":{"type":"string"},"photo":{"type":"object"},"showRating":{"type":"boolean","default":true},"rating":{"type":"number","default":4.5}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/review-item","version":"0.1.0","title":"Review Item","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"clientName":{"type":"string","default":"Asikur Rahman"},"clientDesg":{"type":"string","default":"Web Developer"},"clientComment":{"type":"string","default":"Type here some info about this team member, the man very important person of our company."},"photo":{"type":"object"},"showRating":{"type":"boolean","default":true},"rating":{"type":"number","default":4.5}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
