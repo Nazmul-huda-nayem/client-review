@@ -36,9 +36,21 @@
 		"desgTextSizes": {
 			"type": "object",
 			"default": {
-				"desktop": 20,
-				"tablet": 18,
+				"desktop": 18,
+				"tablet": 16,
 				"mobile": 16
+			}
+		},
+		"commentColor": {
+			"type": "string",
+			"default": "#000"
+		},
+		"commentTextSizes": {
+			"type": "object",
+			"default": {
+				"desktop": 16,
+				"tablet": 15,
+				"mobile": 15
 			}
 		}
 	},

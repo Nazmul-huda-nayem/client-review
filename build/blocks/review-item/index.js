@@ -230,11 +230,11 @@ function save(_ref) {
     tagName: "p",
     className: 'bdt-desc',
     value: clientComment
-  })), showRating && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-review-icon"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-rating",
-    "data-rate-value": rating
+    "data-rate-value": showRating && rating
   })));
 }
 

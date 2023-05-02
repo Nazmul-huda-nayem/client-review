@@ -791,6 +791,8 @@ function Edit(_ref) {
     textSizes,
     desgColor,
     desgTextSizes,
+    commentColor,
+    commentTextSizes,
     id
   } = attributes; //set unique id
 
@@ -849,9 +851,29 @@ function Edit(_ref) {
         attribute: desgTextSizes,
         attributeName: "desgTextSizes",
         setAttributes: setAttributes,
-        deskResetValue: 20,
-        tabResetValue: 18,
+        deskResetValue: 18,
+        tabResetValue: 16,
         mobResetValue: 16,
+        min: 1,
+        max: 100,
+        unit: "px"
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Client Comment', 'clr'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Color', 'clr'),
+        colorValue: commentColor,
+        colorName: "commentColor",
+        setAttributes: setAttributes,
+        enableAlpha: true
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_responsivesize_responsivesize__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text Size', 'clr'),
+        attribute: commentTextSizes,
+        attributeName: "commentTextSizes",
+        setAttributes: setAttributes,
+        deskResetValue: 16,
+        tabResetValue: 15,
+        mobResetValue: 15,
         min: 1,
         max: 100,
         unit: "px"
@@ -865,7 +887,9 @@ function Edit(_ref) {
     textSizes: textSizes,
     textColor: textColor,
     desgTextSizes: desgTextSizes,
-    desgColor: desgColor
+    desgColor: desgColor,
+    commentTextSizes: commentTextSizes,
+    commentColor: commentColor
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "bdt-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -896,6 +920,9 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 	.bdt-content .bdt-designation {
 		color: ${props => props.desgColor} !important;
 	}
+	.bdt-content .bdt-desc {
+		color: ${props => props.commentColor} !important;
+	}
 	// Desktop View
 	@media (min-width: 1025px) {
 		.bdt-content .bdt-name {
@@ -903,6 +930,9 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 		}
 		.bdt-content .bdt-designation {
 			font-size: ${props => props.desgTextSizes.desktop}px !important;
+		}
+		.bdt-content .bdt-desc {
+			font-size: ${props => props.commentTextSizes.desktop}px !important;
 		}
 	}
 
@@ -914,6 +944,9 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 		.bdt-content .bdt-designation {
 			font-size: ${props => props.desgTextSizes.tablet}px !important;
 		}
+		.bdt-content .bdt-desc {
+			font-size: ${props => props.commentTextSizes.tablet}px !important;
+		}
 	}
 
 	// Mobile View
@@ -923,6 +956,9 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 		}
 		.bdt-content .bdt-designation {
 			font-size: ${props => props.desgTextSizes.mobile}px !important;
+		}
+		.bdt-content .bdt-desc {
+			font-size: ${props => props.commentTextSizes.mobile}px !important;
 		}
 	}
 `;
@@ -2027,7 +2063,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

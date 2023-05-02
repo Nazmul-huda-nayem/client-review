@@ -36,11 +36,9 @@ export default function save({ attributes }) {
 				)}
 			</div>
 			{
-				showRating && (
-					<div className="bdt-review-icon">
-						<div className="bdt-rating" data-rate-value={rating}></div>
-					</div>
-				)
+				<div className="bdt-review-icon">
+					<div className="bdt-rating" data-rate-value={ showRating && (rating)}></div>
+				</div>
 			}
 		</div>
 	);

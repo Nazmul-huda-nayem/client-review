@@ -19,7 +19,7 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, desgColor, desgTextSizes, id } = attributes;
+	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, id } = attributes;
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -98,9 +98,37 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											attribute={desgTextSizes}
 											attributeName="desgTextSizes"
 											setAttributes={setAttributes}
-											deskResetValue={20}
-											tabResetValue={18}
+											deskResetValue={18}
+											tabResetValue={16}
 											mobResetValue={16}
+											min={1}
+											max={100}
+											unit="px"
+										/>
+									</PanelBody>
+									<PanelBody 
+										title={__('Client Comment', 'clr')}
+										initialOpen={false}
+									>
+										<ColorControl
+											label={__(
+												'Color',
+												'clr'
+											)}
+											colorValue={commentColor}
+											colorName="commentColor"
+											setAttributes={setAttributes}
+											enableAlpha={true}
+										/>
+										<CardDivider />
+										<ResponsiveSize
+											label={__('Text Size', 'clr')}
+											attribute={commentTextSizes}
+											attributeName="commentTextSizes"
+											setAttributes={setAttributes}
+											deskResetValue={16}
+											tabResetValue={15}
+											mobResetValue={15}
 											min={1}
 											max={100}
 											unit="px"
@@ -122,6 +150,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				textColor= { textColor }
 				desgTextSizes= { desgTextSizes }
 				desgColor= { desgColor }
+				commentTextSizes= { commentTextSizes }
+				commentColor= { commentColor }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">
