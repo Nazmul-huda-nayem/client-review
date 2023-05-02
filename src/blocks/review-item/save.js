@@ -4,14 +4,14 @@ export default function save({ attributes }) {
 	const { clientName, clientDesg, clientComment, rating, photo, showRating } = attributes;
 	return (
 		<div {...useBlockProps.save()}>
-			<div className="bdt-image-wrap">
 				{photo && (
-					<img
-						src={photo.url}
-						alt={photo.alt ? photo.alt : clientName}
-					/>
+					<div className="bdt-image-wrap">
+						<img
+							src={photo.url}
+							alt={photo.alt ? photo.alt : clientName}
+						/>
+					</div>
 				)}
-			</div>
 			<div className="bdt-content">
 				{clientName && (
 					<RichText.Content
