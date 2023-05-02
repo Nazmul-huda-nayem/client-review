@@ -19,7 +19,7 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, id } = attributes;
+	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, id } = attributes;
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -54,11 +54,37 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							return (
 								<Fragment>
 									<PanelBody initialOpen={true}>
+										<ResponsiveSize
+											label={__('Grid Columns', 'clr')}
+											attribute={gridCols}
+											attributeName="gridCols"
+											setAttributes={setAttributes}
+											deskResetValue={3}
+											tabResetValue={2}
+											mobResetValue={1}
+											min={1}
+											max={5}
+											unit= ""
+										/>
+										<ResponsiveSize
+											label={__('Grid Gap', 'clr')}
+											attribute={gridGap}
+											attributeName="gridGap"
+											setAttributes={setAttributes}
+											deskResetValue={20}
+											tabResetValue={15}
+											mobResetValue={15}
+											min={0}
+											max={100}
+											unit= "px"
+										/>
+									</PanelBody>
+									<PanelBody
+										initialOpen={false}
+										title={__('Reviewer Name', 'clr')}
+									>
 										<ColorControl
-											label={__(
-												'Name Color',
-												'clr'
-											)}
+											label={__('Name Color', 'clr')}
 											colorValue={textColor}
 											colorName="textColor"
 											setAttributes={setAttributes}
@@ -78,15 +104,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											unit="px"
 										/>
 									</PanelBody>
-									<PanelBody 
+									<PanelBody
 										title={__('Designation', 'clr')}
 										initialOpen={false}
 									>
 										<ColorControl
-											label={__(
-												'Color',
-												'clr'
-											)}
+											label={__('Color', 'clr')}
 											colorValue={desgColor}
 											colorName="desgColor"
 											setAttributes={setAttributes}
@@ -106,15 +129,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											unit="px"
 										/>
 									</PanelBody>
-									<PanelBody 
+									<PanelBody
 										title={__('Client Comment', 'clr')}
 										initialOpen={false}
 									>
 										<ColorControl
-											label={__(
-												'Color',
-												'clr'
-											)}
+											label={__('Color', 'clr')}
 											colorValue={commentColor}
 											colorName="commentColor"
 											setAttributes={setAttributes}
@@ -152,6 +172,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				desgColor= { desgColor }
 				commentTextSizes= { commentTextSizes }
 				commentColor= { commentColor }
+				gridCols= { gridCols }
+				gridGap= { gridGap }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">

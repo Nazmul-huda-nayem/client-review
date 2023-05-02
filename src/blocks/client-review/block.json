@@ -52,6 +52,22 @@
 				"tablet": 15,
 				"mobile": 15
 			}
+		},
+		"gridCols": {
+			"type": "object",
+			"default": {
+				"desktop": 3,
+				"tablet": 2,
+				"mobile": 1
+			}
+		},
+		"gridGap": {
+			"type": "object",
+			"default": {
+				"desktop": 20,
+				"tablet": 15,
+				"mobile": 15
+			}
 		}
 	},
 	"textdomain": "clr",

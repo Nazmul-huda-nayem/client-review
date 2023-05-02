@@ -793,6 +793,8 @@ function Edit(_ref) {
     desgTextSizes,
     commentColor,
     commentTextSizes,
+    gridCols,
+    gridGap,
     id
   } = attributes; //set unique id
 
@@ -820,6 +822,31 @@ function Edit(_ref) {
     if (tab.name === 'bdt_general') {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         initialOpen: true
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_responsivesize_responsivesize__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Columns', 'clr'),
+        attribute: gridCols,
+        attributeName: "gridCols",
+        setAttributes: setAttributes,
+        deskResetValue: 3,
+        tabResetValue: 2,
+        mobResetValue: 1,
+        min: 1,
+        max: 5,
+        unit: ""
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_responsivesize_responsivesize__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Gap', 'clr'),
+        attribute: gridGap,
+        attributeName: "gridGap",
+        setAttributes: setAttributes,
+        deskResetValue: 20,
+        tabResetValue: 15,
+        mobResetValue: 15,
+        min: 0,
+        max: 100,
+        unit: "px"
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        initialOpen: false,
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Reviewer Name', 'clr')
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_5__["default"], {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Name Color', 'clr'),
         colorValue: textColor,
@@ -889,7 +916,9 @@ function Edit(_ref) {
     desgTextSizes: desgTextSizes,
     desgColor: desgColor,
     commentTextSizes: commentTextSizes,
-    commentColor: commentColor
+    commentColor: commentColor,
+    gridCols: gridCols,
+    gridGap: gridGap
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "bdt-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -925,6 +954,10 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 	}
 	// Desktop View
 	@media (min-width: 1025px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${props => `repeat(${props.gridCols.desktop}, 1fr)`};
+			gap: ${props => props.gridGap.desktop}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.desktop}px !important;
 		}
@@ -938,6 +971,10 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 
 	// Tablet View
 	@media (min-width: 768px) and (max-width: 1024px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${props => `repeat(${props.gridCols.tablet}, 1fr)`};
+			gap: ${props => props.gridGap.tablet}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.tablet}px !important;
 		}
@@ -951,6 +988,10 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 
 	// Mobile View
 	@media (max-width: 767px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${props => `repeat(${props.gridCols.mobile}, 1fr)`};
+			gap: ${props => props.gridGap.mobile}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${props => props.textSizes.mobile}px !important;
 		}
@@ -2063,7 +2104,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}},"gridCols":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"gridGap":{"type":"object","default":{"desktop":20,"tablet":15,"mobile":15}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

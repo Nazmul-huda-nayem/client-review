@@ -12,6 +12,11 @@ const BdtContainer = styled.div`
 	}
 	// Desktop View
 	@media (min-width: 1025px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${(props) =>
+				`repeat(${props.gridCols.desktop}, 1fr)`};
+			gap: ${(props) => props.gridGap.desktop}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${(props) => props.textSizes.desktop}px !important;
 		}
@@ -26,6 +31,11 @@ const BdtContainer = styled.div`
 
 	// Tablet View
 	@media (min-width: 768px) and (max-width: 1024px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${(props) =>
+				`repeat(${props.gridCols.tablet}, 1fr)`};
+			gap: ${(props) => props.gridGap.tablet}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${(props) => props.textSizes.tablet}px !important;
 		}
@@ -39,6 +49,11 @@ const BdtContainer = styled.div`
 
 	// Mobile View
 	@media (max-width: 767px) {
+		.block-editor-block-list__layout {
+			grid-template-columns: ${(props) =>
+				`repeat(${props.gridCols.mobile}, 1fr)`};
+			gap: ${(props) => props.gridGap.mobile}px;
+		}
 		.bdt-content .bdt-name {
 			font-size: ${(props) => props.textSizes.mobile}px !important;
 		}
