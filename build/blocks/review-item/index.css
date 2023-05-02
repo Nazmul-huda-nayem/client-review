@@ -36,6 +36,11 @@
 }
 .wp-block-clr-client-review .bdt-review-grid-wrap .block-editor-block-list__layout {
   display: grid;
+  min-width: 0;
+  min-height: 0;
+}
+.wp-block-clr-client-review .bdt-review-grid-wrap .block-editor-block-list__layout .wp-block-clr-review-item {
+  min-width: 0;
 }
 
 /*# sourceMappingURL=index.css.map*/
