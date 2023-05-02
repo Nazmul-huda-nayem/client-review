@@ -2,10 +2,10 @@
 import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { content, color, id } = attributes;
+	const { content, color, customClasses, id } = attributes;
 	return (
 		<div {...useBlockProps.save({
-			className: id,
+			className: `${ customClasses || ''}`,
 		})}>
 			<div className="bdt-container">
 				<div className="bdt-review-grid-wrap">

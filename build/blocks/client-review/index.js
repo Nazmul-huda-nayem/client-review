@@ -795,6 +795,7 @@ function Edit(_ref) {
     commentTextSizes,
     gridCols,
     gridGap,
+    customClasses,
     id
   } = attributes; //set unique id
 
@@ -908,9 +909,18 @@ function Edit(_ref) {
     } else if (tab.name === 'bdt_style') {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, "Style");
     } else if (tab.name === 'bdt_advanced') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, "Advanced");
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+        label: "Additional CSS Class",
+        value: customClasses,
+        onChange: value => setAttributes({
+          customClasses: value
+        }),
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Please write multiple custom classes using space', 'clr')
+      }));
     }
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_editor_styled__WEBPACK_IMPORTED_MODULE_9__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_editor_styled__WEBPACK_IMPORTED_MODULE_9__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+    className: `${customClasses || ''}`
+  }), {
     textSizes: textSizes,
     textColor: textColor,
     desgTextSizes: desgTextSizes,
@@ -1075,10 +1085,11 @@ function save(_ref) {
   const {
     content,
     color,
+    customClasses,
     id
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    className: id
+    className: `${customClasses || ''}`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -2104,7 +2115,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}},"gridCols":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"gridGap":{"type":"object","default":{"desktop":20,"tablet":15,"mobile":15}}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"customClassName":false},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}},"gridCols":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"gridGap":{"type":"object","default":{"desktop":20,"tablet":15,"mobile":15}},"customClasses":{"type":"string"}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

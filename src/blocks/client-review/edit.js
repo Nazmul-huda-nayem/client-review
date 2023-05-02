@@ -5,7 +5,7 @@ import {
 	RichText,
 	InnerBlocks
 } from '@wordpress/block-editor';
-import { CardDivider, PanelBody, TabPanel } from '@wordpress/components';
+import { CardDivider, PanelBody, TabPanel, TextControl } from '@wordpress/components';
 const { Fragment } = wp.element;
 
 // import color control
@@ -19,7 +19,7 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, id } = attributes;
+	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, customClasses, id } = attributes;
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -159,13 +159,24 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						} else if (tab.name === 'bdt_style') {
 							return <div>Style</div>;
 						} else if (tab.name === 'bdt_advanced') {
-							return <div>Advanced</div>;
+							return (
+								<Fragment>
+									<TextControl
+										label="Additional CSS Class"
+										value={ customClasses }
+										onChange={ ( value ) => setAttributes({customClasses: value}) }
+										help={__('Please write multiple custom classes using space', 'clr')}
+									/>
+								</Fragment>
+							)
 						}
 					}}
 				</TabPanel>
 			</InspectorControls>
 
-			<BdtContainer {...useBlockProps()}
+			<BdtContainer {...useBlockProps({
+				className: `${ customClasses || '' }`
+			})}
 				textSizes= { textSizes }
 				textColor= { textColor }
 				desgTextSizes= { desgTextSizes }

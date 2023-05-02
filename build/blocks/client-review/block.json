@@ -6,8 +6,7 @@
   "category": "clr",
   "description": "Example block written with ESNext standard and JSX support build step required.",
   "supports": {
-    "html": false,
-    "anchor": true
+    "customClassName": false
   },
   "attributes": {
     "id": {
@@ -68,6 +67,9 @@
         "tablet": 15,
         "mobile": 15
       }
+    },
+    "customClasses": {
+      "type": "string"
     }
   },
   "textdomain": "clr",
