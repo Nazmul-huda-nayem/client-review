@@ -8,6 +8,16 @@
 	"supports": {
 		"customClassName": false
 	},
+	"example": {
+		"attributes": {
+			"gridCols": {
+				"type": "object",
+				"default": {
+					"desktop": 1
+				}
+			}
+		}
+	},
 	"attributes": {
 		"id": {
 			"type": "string"
@@ -70,6 +80,13 @@
 		},
 		"customClasses": {
 			"type": "string"
+		},
+		"enableBoxShadow": {
+			"type": "string"
+		},
+		"itemBg": {
+			"type": "string",
+			"default": "#fff"
 		}
 	},
 	"textdomain": "clr",

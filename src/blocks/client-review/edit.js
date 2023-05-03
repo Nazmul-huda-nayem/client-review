@@ -5,13 +5,15 @@ import {
 	RichText,
 	InnerBlocks
 } from '@wordpress/block-editor';
-import { CardDivider, PanelBody, TabPanel, TextControl } from '@wordpress/components';
+import { CardDivider, PanelBody, TabPanel, TextControl, ToggleControl } from '@wordpress/components';
 const { Fragment } = wp.element;
 
 // import color control
 import ColorControl from '../../utilities/components/colorcontrol/colorcontrol';
 // import responsive size
 import ResponsiveSize from '../../utilities/components/responsivesize/responsivesize';
+// import alignment
+import Alignment from '../../utilities/components/alignment/alignment';
 // editor style
 import './editor.scss';
 import '../../utilities/admin/editor.scss';
@@ -19,7 +21,8 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, customClasses, id } = attributes;
+	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, customClasses, enableBoxShadow, itemBg, id } = attributes;
+	
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -64,7 +67,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											mobResetValue={1}
 											min={1}
 											max={5}
-											unit= ""
+											unit=""
 										/>
 										<ResponsiveSize
 											label={__('Grid Gap', 'clr')}
@@ -76,7 +79,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											mobResetValue={15}
 											min={0}
 											max={100}
-											unit= "px"
+											unit="px"
+										/>
+										<Alignment 
+											label={__('Name Alignment', 'clr')}
 										/>
 									</PanelBody>
 									<PanelBody
@@ -154,6 +160,32 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											unit="px"
 										/>
 									</PanelBody>
+									<PanelBody
+										title={__('Item Box', 'clr')}
+										initialOpen={false}
+									>
+										<ColorControl
+											label={__(
+												'Background Color',
+												'clr'
+											)}
+											colorValue={itemBg}
+											colorName="itemBg"
+											setAttributes={setAttributes}
+											enableAlpha={true}
+										/>
+										<CardDivider />
+										<ToggleControl
+											label="Item Boxshadow"
+											checked={enableBoxShadow}
+											onChange={() =>
+												setAttributes({
+													enableBoxShadow:
+														!enableBoxShadow,
+												})
+											}
+										/>
+									</PanelBody>
 								</Fragment>
 							);
 						} else if (tab.name === 'bdt_style') {
@@ -175,7 +207,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			</InspectorControls>
 
 			<BdtContainer {...useBlockProps({
-				className: `${ customClasses || '' }`
+				className: `${ customClasses || '' } ${ enableBoxShadow ? 'active-box-shadow' : ''}`
 			})}
 				textSizes= { textSizes }
 				textColor= { textColor }
@@ -185,6 +217,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				commentColor= { commentColor }
 				gridCols= { gridCols }
 				gridGap= { gridGap }
+				itemBg= { itemBg }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">

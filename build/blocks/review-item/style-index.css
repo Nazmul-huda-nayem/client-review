@@ -16,7 +16,6 @@
   padding: 40px 30px;
   background-color: #fff;
   border: 1px solid #ebebeb;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 .wp-block-clr-client-review .bdt-review-grid-wrap .bdt-image-wrap {
   margin-top: -70px;
@@ -50,6 +49,10 @@
   font-size: 15px;
   color: #6b7285;
   margin-bottom: 50px;
+}
+
+.active-box-shadow .wp-block-clr-review-item {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 /*# sourceMappingURL=style-index.css.map*/

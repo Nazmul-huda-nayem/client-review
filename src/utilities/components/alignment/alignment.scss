@@ -1,0 +1,14 @@
+
+.bwd-Alignment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .bwd-label {
+        margin: 0;
+    }
+    .bwd-single-icon {
+        background: #0000;
+        border: 1px solid #ddd;
+    }
+}
+

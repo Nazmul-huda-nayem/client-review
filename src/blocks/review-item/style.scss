@@ -13,7 +13,6 @@
             padding: 40px 30px;
             background-color: #fff;
             border: 1px solid #ebebeb;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         .bdt-image-wrap {
             margin-top: -70px;
@@ -53,3 +52,9 @@
         // }
     }
 }
+
+ .active-box-shadow {
+    .wp-block-clr-review-item {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+ }

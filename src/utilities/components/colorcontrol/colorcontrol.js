@@ -2,6 +2,7 @@
 import { ColorIndicator, Popover, ColorPicker } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import './colorcontrol.scss';
+import { __ } from '@wordpress/i18n';
 
 const ColorControl = ({
 	label,
@@ -34,6 +35,10 @@ const ColorControl = ({
 						}
 						disableAlpha={enableAlpha}
 					/>
+					{/*Button to clear color */}
+					<button className='bwd-clear-btn'
+						onClick={() => setAttributes({[colorName]: ''})}
+					>{__('Clear', 'clr')}</button>
 				</Popover>
 			)}
 		</div>

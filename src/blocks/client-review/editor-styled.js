@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const BdtContainer = styled.div`
+	.wp-block-clr-review-item  {
+		background-color: ${(props) => props.itemBg} !important;
+	}
 	.bdt-content .bdt-name {
 		color: ${(props) => props.textColor} !important;
 	}
