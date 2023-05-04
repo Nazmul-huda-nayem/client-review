@@ -225,6 +225,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				gridCols= { gridCols }
 				gridGap= { gridGap }
 				itemBg= { itemBg }
+				textAlign= { textAlign }
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">

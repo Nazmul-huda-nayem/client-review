@@ -958,7 +958,8 @@ function Edit(_ref) {
     commentColor: commentColor,
     gridCols: gridCols,
     gridGap: gridGap,
-    itemBg: itemBg
+    itemBg: itemBg,
+    textAlign: textAlign
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "bdt-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -994,6 +995,7 @@ const BdtContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].d
 	}
 	.bdt-content .bdt-desc {
 		color: ${props => props.commentColor} !important;
+		text-align: ${props => props.textAlign} !important;
 	}
 	// Desktop View
 	@media (min-width: 1025px) {

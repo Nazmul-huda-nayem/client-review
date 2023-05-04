@@ -12,6 +12,7 @@ const BdtContainer = styled.div`
 	}
 	.bdt-content .bdt-desc {
 		color: ${(props) => props.commentColor} !important;
+		text-align: ${(props) => props.textAlign} !important;
 	}
 	// Desktop View
 	@media (min-width: 1025px) {
