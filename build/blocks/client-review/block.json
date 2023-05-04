@@ -30,6 +30,10 @@
       "type": "string",
       "default": "#000"
     },
+    "textAlign": {
+      "type": "string",
+      "default": "left"
+    },
     "textSizes": {
       "type": "object",
       "default": {

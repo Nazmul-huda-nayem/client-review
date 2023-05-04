@@ -2,7 +2,6 @@ import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	InspectorControls,
-	RichText,
 	InnerBlocks
 } from '@wordpress/block-editor';
 import { CardDivider, PanelBody, TabPanel, TextControl, ToggleControl } from '@wordpress/components';
@@ -14,6 +13,8 @@ import ColorControl from '../../utilities/components/colorcontrol/colorcontrol';
 import ResponsiveSize from '../../utilities/components/responsivesize/responsivesize';
 // import alignment
 import Alignment from '../../utilities/components/alignment/alignment';
+// import option align
+import aligns from '../../utilities/options/align';
 // editor style
 import './editor.scss';
 import '../../utilities/admin/editor.scss';
@@ -21,8 +22,8 @@ import BdtContainer from './editor-styled';
 
 
 export default function Edit({ attributes, setAttributes, clientId }) {
-	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, customClasses, enableBoxShadow, itemBg, id } = attributes;
-	
+	const { textColor, textSizes, desgColor, desgTextSizes, commentColor, commentTextSizes, gridCols, gridGap, customClasses, enableBoxShadow, itemBg, textAlign } = attributes;
+
 	//set unique id
 	setAttributes({
 		id: 'bdt-client-review-' + clientId.slice(0, 8),
@@ -83,6 +84,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 										/>
 										<Alignment 
 											label={__('Name Alignment', 'clr')}
+											attribute={textAlign}
+											attributeName='textAlign'
+											setAttributes={setAttributes}
+											options= {
+												aligns
+											}
 										/>
 									</PanelBody>
 									<PanelBody

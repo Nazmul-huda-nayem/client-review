@@ -762,9 +762,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_components_colorcontrol_colorcontrol__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utilities/components/colorcontrol/colorcontrol */ "./src/utilities/components/colorcontrol/colorcontrol.js");
 /* harmony import */ var _utilities_components_responsivesize_responsivesize__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utilities/components/responsivesize/responsivesize */ "./src/utilities/components/responsivesize/responsivesize.js");
 /* harmony import */ var _utilities_components_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utilities/components/alignment/alignment */ "./src/utilities/components/alignment/alignment.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/client-review/editor.scss");
-/* harmony import */ var _utilities_admin_editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utilities/admin/editor.scss */ "./src/utilities/admin/editor.scss");
-/* harmony import */ var _editor_styled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./editor-styled */ "./src/blocks/client-review/editor-styled.js");
+/* harmony import */ var _utilities_options_align__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utilities/options/align */ "./src/utilities/options/align.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/client-review/editor.scss");
+/* harmony import */ var _utilities_admin_editor_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utilities/admin/editor.scss */ "./src/utilities/admin/editor.scss");
+/* harmony import */ var _editor_styled__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./editor-styled */ "./src/blocks/client-review/editor-styled.js");
 
 
 
@@ -777,6 +778,8 @@ const {
  // import responsive size
 
  // import alignment
+
+ // import option align
 
  // editor style
 
@@ -801,7 +804,7 @@ function Edit(_ref) {
     customClasses,
     enableBoxShadow,
     itemBg,
-    id
+    textAlign
   } = attributes; //set unique id
 
   setAttributes({
@@ -851,7 +854,11 @@ function Edit(_ref) {
         max: 100,
         unit: "px"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_utilities_components_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Name Alignment', 'clr')
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Name Alignment', 'clr'),
+        attribute: textAlign,
+        attributeName: "textAlign",
+        setAttributes: setAttributes,
+        options: _utilities_options_align__WEBPACK_IMPORTED_MODULE_8__["default"]
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         initialOpen: false,
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Reviewer Name', 'clr')
@@ -940,7 +947,7 @@ function Edit(_ref) {
         help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Please write multiple custom classes using space', 'clr')
       }));
     }
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_editor_styled__WEBPACK_IMPORTED_MODULE_10__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_editor_styled__WEBPACK_IMPORTED_MODULE_11__["default"], (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
     className: `${customClasses || ''} ${enableBoxShadow ? 'active-box-shadow' : ''}`
   }), {
     textSizes: textSizes,
@@ -1141,7 +1148,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const Alignment = _ref => {
   let {
-    label
+    label,
+    attribute,
+    attributeName,
+    setAttributes,
+    options
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bwd-Alignment"
@@ -1149,19 +1160,17 @@ const Alignment = _ref => {
     className: "bwd-label"
   }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bwd-alignment-icon-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "bwd-single-icon"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "dashicons dashicons-editor-alignleft"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "bwd-single-icon"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "dashicons dashicons-editor-aligncenter"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "bwd-single-icon"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "dashicons dashicons-editor-alignright"
-  }))));
+  }, options && options.map((option, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: `bwd-single-icon ${attribute === option.value ? 'active' : ''}`,
+      onClick: () => setAttributes({
+        [attributeName]: option.value
+      }),
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: `dashicons dashicons-editor-${option.icon}`
+    }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Alignment);
@@ -1348,6 +1357,31 @@ const ResponsiveSize = _ref => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ResponsiveSize);
+
+/***/ }),
+
+/***/ "./src/utilities/options/align.js":
+/*!****************************************!*\
+  !*** ./src/utilities/options/align.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const aligns = [{
+  icon: 'alignleft',
+  value: 'left'
+}, {
+  icon: 'aligncenter',
+  value: 'center'
+}, {
+  icon: 'alignright',
+  value: 'right'
+}, {
+  icon: 'justify',
+  value: 'justify'
+}];
+/* harmony default export */ __webpack_exports__["default"] = (aligns);
 
 /***/ }),
 
@@ -2205,7 +2239,7 @@ function _extends() {
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"customClassName":false},"example":{"attributes":{"gridCols":{"type":"object","default":{"desktop":1}}}},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}},"gridCols":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"gridGap":{"type":"object","default":{"desktop":20,"tablet":15,"mobile":15}},"customClasses":{"type":"string"},"enableBoxShadow":{"type":"string"},"itemBg":{"type":"string","default":"#fff"}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"clr/client-review","version":"0.1.0","title":"Client Review","category":"clr","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"customClassName":false},"example":{"attributes":{"gridCols":{"type":"object","default":{"desktop":1}}}},"attributes":{"id":{"type":"string"},"content":{"type":"string","default":"Hello World!"},"textColor":{"type":"string","default":"#000"},"textAlign":{"type":"string","default":"left"},"textSizes":{"type":"object","default":{"desktop":20,"tablet":18,"mobile":16}},"desgColor":{"type":"string","default":"#000"},"desgTextSizes":{"type":"object","default":{"desktop":18,"tablet":16,"mobile":16}},"commentColor":{"type":"string","default":"#000"},"commentTextSizes":{"type":"object","default":{"desktop":16,"tablet":15,"mobile":15}},"gridCols":{"type":"object","default":{"desktop":3,"tablet":2,"mobile":1}},"gridGap":{"type":"object","default":{"desktop":20,"tablet":15,"mobile":15}},"customClasses":{"type":"string"},"enableBoxShadow":{"type":"string"},"itemBg":{"type":"string","default":"#fff"}},"textdomain":"clr","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
