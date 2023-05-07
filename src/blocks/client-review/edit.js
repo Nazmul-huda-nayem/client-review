@@ -83,7 +83,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 											unit="px"
 										/>
 										<Alignment 
-											label={__('Name Alignment', 'clr')}
+											label={__('Ekhon Alignment', 'clr')}
 											attribute={textAlign}
 											attributeName='textAlign'
 											setAttributes={setAttributes}
